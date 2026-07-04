@@ -1,48 +1,47 @@
 {
   "files": {
     "code-reviewer.md": {
-      "generator_version": "2",
+      "generator_version": "3",
       "output": "code-reviewer.toml",
-      "output_hash": "e5e83b73f60d68baad957b00f01a0d4822092975cc01a211ca88988c71c70850",
+      "output_hash": "fb92c104406d86541a04ceb0b23f4c3f9d1d940b829c58ddb34397db223e395f",
       "source_hash": "74667b052cb6a75079791cee8f6e465a248e28fd82178505aaaec8db95c40ccf"
     },
     "plan-agent.md": {
-      "generator_version": "2",
+      "generator_version": "3",
       "output": "plan-agent.toml",
-      "output_hash": "b0d46b516f93d5d161e22be8e8ad8f350db9316de88444ca38896ed044e7d050",
+      "output_hash": "6e81319c08a738176fed72248e6ec116d89e82f5197dce02d8d2697c6e561979",
       "source_hash": "0a1ce306ea77ca7c7ddf1b6fc944db13bbc9e385847bb9d7b8f5a03170d62a02"
     },
     "plan-reviewer.md": {
-      "generator_version": "2",
+      "generator_version": "3",
       "output": "plan-reviewer.toml",
-      "output_hash": "0db660edd46bf08e1ef745792081978eaf3f7734bcf12557a0d26640e0f6184a",
+      "output_hash": "49a5c4f105b7ab843777a139b61d4ac740803c44f83e581f7c0dc87c6a5fd646",
       "source_hash": "9c63714070b1123acc879ba76dc370b0f0e77adf9126b14f8eebd2abc7e1b058"
     },
     "refactor-agent.md": {
-      "generator_version": "2",
+      "generator_version": "3",
       "output": "refactor-agent.toml",
-      "output_hash": "c4687d82fa9bf4d6ad8f322e4849292718c796a701bf0d4b593174087a4a2d89",
+      "output_hash": "8e305333c5b257a8cbedd746de79754a20317be61557a26b936a7306d5932801",
       "source_hash": "b609d3c9802f67f0f1390cd3f96597e606227f75ca0445f9f24780e9cb57693a"
     },
     "security-auditor.md": {
-      "generator_version": "2",
+      "generator_version": "3",
       "output": "security-auditor.toml",
-      "output_hash": "82754b2eaabbc6d8beb5408484846efd9824186b332c3f2b931994cfece1d156",
+      "output_hash": "ba5ac667ed7b2419dbcd34983528c6880cc1e2899d15b7761788cb8f30e39e19",
       "source_hash": "66a3f68f1c691b600ddb44e88afb138e239d0572df37be84e1f9a427c887dd0a"
     },
     "test-engineer.md": {
-      "generator_version": "2",
+      "generator_version": "3",
       "output": "test-engineer.toml",
-      "output_hash": "eab654277dcde0dc814904c9d3d0cf753279eb3fb7084f070e925e7c9e6cca53",
+      "output_hash": "7b4d7d946da18fc908a0f78e0724679f62b6ddbedb8ca9f1a10fcaf847f2600e",
       "source_hash": "c4acde91d6307d88515387344a129a2d0679134e587596c3517d73faffcd5aa6"
     },
     "web-performance-auditor.md": {
-      "generator_version": "2",
+      "generator_version": "3",
       "output": "web-performance-auditor.toml",
-      "output_hash": "10f621c275704750995f2c62d2d01df8ab50e530698ae7bdea479014ecb21b8a",
+      "output_hash": "a0866d4dd59d3d8f84d940d4a4148396afa8082a49c38e6b23f9d114ea30692c",
       "source_hash": "0928b1cf8103262a364bce0c1fc689a918852e2275441f1b2e687adfa1e607e9"
     }
   },
-  "generator_version": "2",
-  "model": "gpt-5.5"
+  "generator_version": "3"
 }

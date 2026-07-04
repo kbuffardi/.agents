@@ -9,8 +9,7 @@ OUT = SRC / "generated-codex"
 CODEX_AGENTS = Path.home() / ".codex" / "agents"
 STATE_FILE = OUT / ".sync-state.json"
 
-MODEL = "gpt-5.5"
-GENERATOR_VERSION = "2"
+GENERATOR_VERSION = "3"
 
 
 def sha256(text):
@@ -70,7 +69,6 @@ def render_toml(agent):
 
 name = {toml_quote(agent["name"])}
 description = {toml_quote(agent["description"])}
-model = {toml_quote(MODEL)}
 
 developer_instructions = {toml_quote(agent["developer_instructions"])}
 """
@@ -155,7 +153,6 @@ def main():
 
     save_state({
         "generator_version": GENERATOR_VERSION,
-        "model": MODEL,
         "files": new_files,
     })
 
