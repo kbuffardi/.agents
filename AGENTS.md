@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This is the persistent Codex routing guide for this repository. Use it to decide which root agent definition and which repository skill should shape a task before planning, editing, reviewing, or publishing changes.
+This is the persistent agent routing guide for this repository. Use it to decide which root agent definition and which repository skill should shape a task before planning, editing, reviewing, or publishing changes.
 
 ## Source Of Truth
 
