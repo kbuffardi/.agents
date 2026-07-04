@@ -13,6 +13,8 @@ GitHub is our source of truth for project management. Issues document requested 
 
 Always. Every project that is associated with a GitHub repository should follow this workflow. It is the default for all new projects and is expected for all existing projects.
 
+Whenever planning, use this skill to ensure every change is first documented in a GitHub Issue, that Issue is updated when the plan is revised to document the decision-making-process, and that the implementation of the change is submitted as a Pull Request while referencing the issue. This ensures that Issues act as a single source of truth.
+
 ## Core Principles
 
 ### Trunk-Based Development
@@ -30,14 +32,19 @@ chore/<short-description>     → chore/update-deps
 refactor/<short-description>  → refactor/auth-module
 ```
 
-
 ### 1. Document plans in a GitHub Issue
 
 The beginning of every change should initiate as a GitHub Issue. The issue should contain a clear description of the problem, the proposed solution, and any relevant context or references. This ensures that all stakeholders are aware of the change and can provide input before any code is written. If a plan is instigated without an explicit GitHub Issue identified, the human should be asked whether there is an existing GitHub Issue or if the agent should create one. 
 
 Issues are identified by a unique number following the `#` symbol. For example, `#123` refers to issue number 123. However, the issue number should be validated to make sure it is a valid issue number in the repository. If the issue number is invalid, the human should be asked to provide a valid issue number or to choose for the agent to create a new issue.
 
-As plans are created and revised, the GitHub Issue should be updated with new comments to reflect the current state of the plan. Updated comments should accurately reflect the decisions including what an agent created, what input and decisions a human made, and what revisions were made. This ensures that all stakeholders are aware of the change and can provide input before any code is written. The issue should be updated with a summary of the changes made, any relevant context or references, and any questions or concerns that need to be addressed.
+As plans are created and revised, the GitHub Issue should be updated with new comments to reflect the current state of the plan. Updated comments should accurately reflect the decisions including what an agent created, what input and decisions a human made, and what revisions were made. 
+
+For example, if an agent creates a plan and a human provides feedback, the agent should update the GitHub Issue with a comment that verbatim quotes the feedback. If the agent asks a human to make a decision, quote the questions, the options provided, and the decisions made.
+
+If a human prompts an agent that changes the direction of the plan, the agent should update the GitHub Issue with a comment that quotes the human's prompt (and attributes the quote to them), and then summarizes the decision and attributes the agent's changes in response to the human's prompt.
+
+This ensures that all stakeholders are aware of the change's plan as well as decision-makers' thought process.
 
 ### 2. Pull Requests for Code Review
 
