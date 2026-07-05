@@ -8,22 +8,21 @@ This is the persistent agent routing guide for this repository. Use it to decide
 
 - Root agent Markdown files are the source definitions for repository agents.
 - `skills/*/SKILL.md` files are the source instructions for repository skills. Read the relevant `SKILL.md` completely before using a skill.
-- `generated-codex/*.toml` files are generated mirrors for Codex and should not be hand-edited.
+- `generated-codex/*.toml` files are generated mirrors for Codex and should not be hand-edited. They are generated from the agents specified in `.`
 - `./sync-codex-agents.py` regenerates Codex agent TOML from the root agent Markdown files.
 - For persistent agent behavior, update `AGENTS.md` or the relevant source agent/skill file. For one-off feature decisions, use GitHub issue comments, specs, or PR notes.
 
 ## Required Workflow
 
-- For any GitHub-backed repository change, use `skills/github-workflow/SKILL.md`.
-- For any code or documentation change, use `skills/git-workflow-and-versioning/SKILL.md`.
-- Start changes from a dedicated branch off `main` with a type-prefixed name such as `feature/...`, `fix/...`, `chore/...`, or `refactor/...`.
-- Create or validate a GitHub issue before implementation, update the issue when plans or decisions change, and open a PR that references the issue with `closes #<issue-number>`.
+- ALWAYS ON: Unless specifically instructed not to, each project should be affiliated with a GitHub repository. Plans should ALWAYS be documented as GitHub Issues. Any file changes, including plans, should ALWAYS be stored in a new feature branch (as described in `skills/github-workflow/SKILL.md`), and implementations should open GitHub Pull Requests (PRs) as described in `skills/github-workflow/SKILL.md`.
+- ALWAYS ON: For any code revision or documentation change, use `skills/git-workflow-and-versioning/SKILL.md` to record revisions with conventional version control.
+- ALWAYS ON: Start implemented changes from a dedicated branch off `main` with a type-prefixed name such as `feature/...`, `fix/...`, `chore/...`, or `refactor/...`. Never make changes on the `main` branch
+- ALWAYS ON: During implementation and revision, update the issue when plans or decisions change, and open a PR that references the issue with `closes #<issue-number>` as described in `as described in `skills/github-workflow/SKILL.md`
 - Keep changes atomic. Do not mix unrelated docs, generator, agent, or skill edits in one PR.
-- Prefer `rg` for search and inspect relevant source files before editing.
 
 ## Agent Routing
 
-- `plan-agent.md`: Use for feature planning, implementation specs, task breakdowns, and handoff plans before code changes.
+- DEFAULT unless specified otherwise, use `plan-agent.md` for all planning: Use for feature planning, implementation specs, task breakdowns, and handoff plans before code changes.
 - `plan-reviewer.md`: Use to review a plan for completeness, feasibility, missing context, and implementation readiness before execution.
 - `code-reviewer.md`: Use for code review before merge, especially correctness, readability, architecture, security, performance, regressions, and missing tests.
 - `refactor-agent.md`: Use for maintainability and simplification reviews when behavior should stay the same.

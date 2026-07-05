@@ -11,7 +11,7 @@ GitHub is our source of truth for project management. Issues document requested 
 
 ## When to Use
 
-Always. Every project that is associated with a GitHub repository should follow this workflow. It is the default for all new projects and is expected for all existing projects.
+ALWAYS. Every project that is associated with a GitHub repository should follow this workflow. It is the default for all new projects and is expected for all existing projects.
 
 Whenever planning, use this skill to ensure every change is first documented in a GitHub Issue, that Issue is updated when the plan is revised to document the decision-making-process, and that the implementation of the change is submitted as a Pull Request while referencing the issue. This ensures that Issues act as a single source of truth.
 
@@ -36,7 +36,7 @@ refactor/<short-description>  → refactor/auth-module
 
 The beginning of every change should initiate as a GitHub Issue. The issue should contain a clear description of the problem, the proposed solution, and any relevant context or references. This ensures that all stakeholders are aware of the change and can provide input before any code is written. If a plan is instigated without an explicit GitHub Issue identified, the human should be asked whether there is an existing GitHub Issue or if the agent should create one. 
 
-Issues are identified by a unique number following the `#` symbol. For example, `#123` refers to issue number 123. However, the issue number should be validated to make sure it is a valid issue number in the repository. If the issue number is invalid, the human should be asked to provide a valid issue number or to choose for the agent to create a new issue.
+Issues are identified by a unique number following the `#` symbol. For example, `#123` refers to issue number 123. However, the issue number should be validated to make sure it is a valid issue number in the repository. If the issue number is invalid, the human should be asked to provide a valid issue number or to choose for the agent to create a new issue. Issues can be retrieved via the GitHub API or by using the `gh` CLI tool. If a human is asked to provide an issue number, they should be prompted to provide the issue number in the format `#<issue-number>` where <issue-number> is the number of the GitHub Issue that the plan implements. GitHub Issues are also retrievable via the GitHub web interface, which can be accessed by navigating to the repository (e.g. https://github.com/<owner>/<repo>) with the issue identifier appended to the URL (e.g. /issues/<issue-number>); in the URL, replace all labels in tags (i.e. <tag>) with the appropriate values for the repository and issue number.
 
 As plans are created and revised, the GitHub Issue should be updated with new comments to reflect the current state of the plan. Updated comments should accurately reflect the decisions including what an agent created, what input and decisions a human made, and what revisions were made. 
 
