@@ -1,5 +1,11 @@
 {
   "files": {
+    "AGENTS.md": {
+      "generator_version": "3",
+      "output": "AGENTS.toml",
+      "output_hash": "2d3a5b68a60a2cc182c67becd6a9207354372d491ae80f153be7e6ca952ae4fe",
+      "source_hash": "bfee7f0f6eccd24c4c1f95ce50733d7c1ad37efd0ff79e425fb73edd043710a4"
+    },
     "code-reviewer.md": {
       "generator_version": "3",
       "output": "code-reviewer.toml",
