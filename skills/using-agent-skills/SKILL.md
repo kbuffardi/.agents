@@ -20,11 +20,13 @@ Task arrives
     ├── Have a rough concept, need variants? → idea-refine
     ├── New project/feature/change? ──→ spec-driven-development
     ├── Have a spec, need tasks? ──────→ planning-and-task-breakdown
+    ├── Documenting planning and decision making? ──────→ github-workflow
     ├── Implementing code? ────────────→ incremental-implementation
     │   ├── UI work? ─────────────────→ frontend-ui-engineering
     │   ├── API work? ────────────────→ api-and-interface-design
     │   ├── Need better context? ─────→ context-engineering
     │   ├── Need doc-verified code? ───→ source-driven-development
+    │   ├── Suggested implemented solution? ───→ github-workflow
     │   └── Stakes high / unfamiliar code? ──→ doubt-driven-development
     ├── Writing/running tests? ────────→ test-driven-development
     │   └── Browser-based? ───────────→ browser-testing-with-devtools
@@ -44,6 +46,10 @@ Task arrives
 ## Core Operating Behaviors
 
 These behaviors apply at all times, across all skills. They are non-negotiable.
+
+### 0. GitHub is the Source of Truth
+
+All work is tracked on GitHub Issues and implementations submitted via PRs from feature branches. All context, decisions, and validation must be recorded there. Treat `skills/github-workflow/SKILLS.md` as ALWAYS ON rules, unless explicitly told not to by a human. If you are unsure where to record something, ask a human.
 
 ### 1. Surface Assumptions
 
