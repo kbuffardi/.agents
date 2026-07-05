@@ -23,7 +23,7 @@ This is the persistent agent routing guide for this repository. Use it to decide
 ## Agent Routing
 
 - DEFAULT unless specified otherwise, use `plan-agent.md` for all planning: Use for feature planning, implementation specs, task breakdowns, and handoff plans before code changes.
-- `plan-reviewer.md`: Use to review a plan for completeness, feasibility, missing context, and implementation readiness before execution.
+- Upon request, use `plan-reviewer.md`: Use to review a plan for completeness, feasibility, missing context, and implementation readiness before execution.
 - `code-reviewer.md`: Use for code review before merge, especially correctness, readability, architecture, security, performance, regressions, and missing tests.
 - `refactor-agent.md`: Use for maintainability and simplification reviews when behavior should stay the same.
 - `security-auditor.md`: Use for security-focused review, threat modeling, vulnerability detection, and hardening recommendations.
