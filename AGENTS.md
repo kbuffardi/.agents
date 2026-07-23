@@ -1,3 +1,9 @@
+---
+name: AGENTS
+description: This is the persistent agent routing guide for this repository. Use it to decide which root agent definition and which repository skill should shape a task before planning, editing, reviewing, or publishing changes.
+model: gpt-5.5
+---
+
 # AGENTS.md
 
 ## Purpose
@@ -20,6 +26,13 @@ This is the persistent agent routing guide for this repository. Use it to decide
 - ALWAYS ON: During implementation and revision, update the issue when plans or decisions change, and open a PR that references the issue with `closes #<issue-number>` as described in `as described in `skills/github-workflow/SKILL.md`
 - Keep changes atomic. Do not mix unrelated docs, generator, agent, or skill edits in one PR.
 
+## Student DORA Defaults
+
+- ALWAYS ON for student or course repositories: Preserve DORA-relevant evidence while working, including PRs, commits, releases/tags, CI results, issues, failures, fixes, and deployment or submission events.
+- Use `student-dora-tracking` when asked for delivery metrics, workflow health, project progress, PR summaries, milestone reports, student/team comparisons, or course/instructor reporting.
+- Do not assign grades, scores, penalties, or rankings from DORA metrics unless an instructor-provided rubric explicitly defines that interpretation.
+- For student-facing output, frame DORA observations as coaching and workflow-improvement guidance. For instructor-facing output, include evidence, caveats, and suggested interventions.
+
 ## Agent Routing
 
 - DEFAULT unless specified otherwise, use `plan-agent.md` for all planning: Use for feature planning, implementation specs, task breakdowns, and handoff plans before code changes.
@@ -29,6 +42,8 @@ This is the persistent agent routing guide for this repository. Use it to decide
 - `security-auditor.md`: Use for security-focused review, threat modeling, vulnerability detection, and hardening recommendations.
 - `test-engineer.md`: Use for test strategy, coverage analysis, test design, and QA review.
 - `web-performance-auditor.md`: Use for web performance audits involving Core Web Vitals, loading, rendering, network behavior, or browser performance risks.
+- `student-dora-tracker.md`: Use for instructor-facing DORA-style delivery reports for student GitHub repositories, teams, or submissions.
+- `sprint-retrospective.md`: Use for student sprint reviews, team reflection, workflow coaching, and end-of-iteration retrospective summaries.
 
 ## Skill Routing
 
@@ -79,6 +94,12 @@ This is the persistent agent routing guide for this repository. Use it to decide
 ### Documentation
 
 - `documentation-and-adrs`: Use when adding durable docs, recording decisions, changing public APIs, or preserving context for future agents.
+- `student-dora-tracking`: Use when instructors or course staff need DORA-style delivery metrics, GitHub-based delivery reports, or student/team workflow analysis.
+- `dora-deployment-frequency`: Use for the deployment frequency metric or delivery cadence signal in student repositories.
+- `dora-lead-time-for-changes`: Use for the lead time metric from change start to delivery.
+- `dora-change-failure-rate`: Use for the change failure rate metric based on CI, deployment, revert, issue, or regression evidence.
+- `dora-time-to-restore`: Use for restore/recovery time after failed checks, issues, regressions, or deployments.
+- `sprint-retrospective`: Use for sprint retrospectives, student/team coaching, and instructor-facing iteration summaries.
 - `AGENTS.md`: Update this file when persistent routing, workflow, or source-of-truth rules change.
 - GitHub issues and PR descriptions: Use for task-specific context, decisions, validation, and review discussion.
 

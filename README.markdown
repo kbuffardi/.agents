@@ -93,6 +93,22 @@ Use this repository as a reference or copy selected agents and skills into your 
 
 > Put mandatory defaults in the file your agent always loads. Put the detailed procedure in skills.
 
+### Student DORA tracking
+
+If students may not invoke a named DORA agent, put the short DORA default in the downstream project's always-loaded `AGENTS.md` and keep the detailed workflow in `skills/student-dora-tracking/SKILL.md`. The top-level DORA skill can coordinate metric-specific skills for deployment frequency, lead time for changes, change failure rate, and time to restore.
+
+```markdown
+## Student DORA defaults
+
+For student or course repositories:
+- preserve DORA-relevant evidence while working, including PRs, commits, releases/tags, CI results, issues, failures, fixes, and deployment or submission events
+- use `student-dora-tracking` for delivery metrics, workflow health, project progress, PR summaries, milestone reports, or course/instructor reporting
+- use the metric-specific DORA skills when only one metric is needed
+- use `sprint-retrospective` for end-of-sprint reflection and coaching
+- do not assign grades, scores, penalties, or rankings from DORA metrics unless an instructor-provided rubric explicitly defines that interpretation
+- frame student-facing output as coaching and workflow-improvement guidance
+```
+
 ### Codex projects: `AGENTS.md`
 
 For Codex, the always-loaded project file is `AGENTS.md`. This repository uses that pattern as downstream guidance; keep the file short and directive in projects that adopt these agents and skills.

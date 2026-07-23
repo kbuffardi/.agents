@@ -4,9 +4,9 @@ import hashlib
 import json
 import shutil
 
-SRC = Path.home() / ".agents"
+SRC = Path(__file__).resolve().parent
 OUT = SRC / "generated-codex"
-CODEX_AGENTS = Path.home() / ".codex" / "agents"
+CODEX_AGENTS = SRC / ".codex" / "agents"
 STATE_FILE = OUT / ".sync-state.json"
 
 GENERATOR_VERSION = "3"
@@ -35,6 +35,7 @@ def parse_agent(path):
     text = path.read_text(encoding="utf-8")
     name = path.stem
     description = ""
+    model = ""
     instructions = text.strip()
 
     if text.startswith("---"):
@@ -53,44 +54,49 @@ def parse_agent(path):
                     name = value
                 elif key == "description":
                     description = value
+                elif key == "model":
+                    model = value
         except ValueError:
             pass
 
     return {
         "name": name,
         "description": description,
+        "model": model,
         "developer_instructions": instructions,
         "source": path.name,
     }
 
 
 def render_toml(agent):
+    model = f"model = {toml_quote(agent['model'])}\n" if agent["model"] else ""
     return f"""# Generated from {agent["source"]}. Do not edit directly.
 
 name = {toml_quote(agent["name"])}
 description = {toml_quote(agent["description"])}
-
+{model}
 developer_instructions = {toml_quote(agent["developer_instructions"])}
 """
 
 
-def ensure_codex_symlink():
+def ensure_codex_agents_dir():
     CODEX_AGENTS.parent.mkdir(parents=True, exist_ok=True)
 
     if CODEX_AGENTS.is_symlink():
-        if CODEX_AGENTS.resolve() == OUT.resolve():
-            return
         CODEX_AGENTS.unlink()
 
-    if CODEX_AGENTS.exists():
-        backup = CODEX_AGENTS.with_name("agents.backup")
-        if backup.exists():
-            shutil.rmtree(backup)
-        CODEX_AGENTS.rename(backup)
-        print(f"Backed up existing Codex agents dir to {backup}")
+    CODEX_AGENTS.mkdir(parents=True, exist_ok=True)
 
-    CODEX_AGENTS.symlink_to(OUT, target_is_directory=True)
-    print(f"Linked {CODEX_AGENTS} -> {OUT}")
+
+def sync_codex_agents_dir(valid_outputs):
+    ensure_codex_agents_dir()
+
+    for toml in CODEX_AGENTS.glob("*.toml"):
+        if toml.name not in valid_outputs:
+            toml.unlink()
+
+    for name in sorted(valid_outputs):
+        shutil.copy2(OUT / name, CODEX_AGENTS / name)
 
 
 def output_path_for(md_path):
@@ -99,7 +105,7 @@ def output_path_for(md_path):
 
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
-    ensure_codex_symlink()
+    ensure_codex_agents_dir()
 
     old_state = load_state()
     old_files = old_state.get("files", {})
@@ -150,6 +156,8 @@ def main():
         if toml.name not in valid_outputs:
             toml.unlink()
             removed += 1
+
+    sync_codex_agents_dir(valid_outputs)
 
     save_state({
         "generator_version": GENERATOR_VERSION,
