@@ -16,10 +16,10 @@ Reusable agent definitions and skills for GitHub-backed software projects. This 
 │   ├── github-workflow/SKILL.md
 │   ├── git-workflow-and-versioning/SKILL.md
 │   └── ...
-├── generated-codex/
-│   ├── plan-agent.toml
-│   ├── code-reviewer.toml
-│   └── ...
+├── plan-agent.toml
+├── code-reviewer.toml
+├── ...
+├── .sync-state.json
 └── sync-codex-agents.py
 ```
 
@@ -29,8 +29,9 @@ Reusable agent definitions and skills for GitHub-backed software projects. This 
 |---|---|
 | `*.md` at the repository root | Files mirrored by `sync-codex-agents.py` into Codex TOML. In this repository, those root Markdown files are the agent definitions such as `plan-agent`, `code-reviewer`, and `security-auditor`. |
 | `skills/*/SKILL.md` | Source instructions for reusable repository skills. |
-| `generated-codex/*.toml` | Generated Codex mirrors of the repository root `*.md` files. Do not edit by hand. |
-| `sync-codex-agents.py` | Regenerates `generated-codex/*.toml` and links `~/.codex/agents` to this repository output. |
+| `*.toml` at the repository root | Generated Codex mirrors of the repository root `*.md` files. Do not edit by hand. |
+| `.sync-state.json` | Generator bookkeeping for the root-level Codex mirrors. Do not edit by hand. |
+| `sync-codex-agents.py` | Regenerates root `*.toml` files and links `~/.codex/agents` to this repository output. |
 
 ## Source of truth and generated files
 
@@ -39,7 +40,7 @@ Edit the Markdown sources:
 - root `*.md` files for mirrored Codex agent content
 - `skills/*/SKILL.md` for skills
 
-Do **not** hand-edit `generated-codex/*.toml`. They are generated output from `sync-codex-agents.py`, which mirrors every root `*.md` file in this repository.
+Do **not** hand-edit root `*.toml` files. They are generated output from `sync-codex-agents.py`, which mirrors every root `*.md` file in this repository.
 
 ## How to use this repository
 
@@ -53,7 +54,7 @@ Do **not** hand-edit `generated-codex/*.toml`. They are generated output from `s
    python3 sync-codex-agents.py
    ```
 
-3. Review the generated diff in `generated-codex/`.
+3. Review the generated diff among the root `*.toml` files.
 4. If you changed only a skill or documentation file, no generated Codex mirror should change.
 5. Submit the change through the repository GitHub workflow: issue-first planning, short-lived branch, and PR review.
 

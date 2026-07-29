@@ -8,7 +8,7 @@ This is the persistent agent routing guide for this repository. Use it to decide
 
 - Root agent Markdown files are the source definitions for repository agents.
 - `skills/*/SKILL.md` files are the source instructions for repository skills. Read the relevant `SKILL.md` completely before using a skill.
-- `generated-codex/*.toml` files are generated mirrors for Codex and should not be hand-edited. They are generated from the agents specified in `.`
+- Root `*.toml` files are generated mirrors for Codex and should not be hand-edited. They are generated from the agents specified in `.`
 - `./sync-codex-agents.py` regenerates Codex agent TOML from the root agent Markdown files.
 - For persistent agent behavior, update `AGENTS.md` or the relevant source agent/skill file. For one-off feature decisions, use GitHub issue comments, specs, or PR notes.
 
@@ -101,4 +101,4 @@ This is the persistent agent routing guide for this repository. Use it to decide
 
 - `plan-reviewer.md` currently has source frontmatter `name: plan-reviwer`; generated Codex metadata uses `plan-reviewer`. Treat this as a known source quirk unless a dedicated fix is requested.
 - The `python-code-simplifier` skill currently lives under `skills/python-code-simiplifier/`. Use the skill name from its frontmatter and the existing path when referencing the file.
-- Do not regenerate or edit `generated-codex/*.toml` for documentation-only changes to this file.
+- Do not regenerate or edit generated root `*.toml` files for documentation-only changes to this file.
