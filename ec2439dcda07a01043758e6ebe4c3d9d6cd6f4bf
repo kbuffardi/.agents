@@ -1,0 +1,16 @@
+## AI Agent Reasoning
+
+### Context
+Moved Codex-generated agent TOML files and synchronization state from the dedicated generated-codex directory to the repository root.
+
+### Decisions Made
+- Point the Codex agents symlink at the repository root so the root TOML outputs are consumed directly.
+- Remove stale files only from the previous generated-output set, preventing unrelated root TOML files from being deleted.
+- Preserve the existing gpt-5.5 overrides for AGENTS, plan-agent, and plan-reviewer so relocation does not change routing behavior.
+
+### Verification
+- Repeated root synchronization was idempotent: 8 generated outputs skipped and 0 removed.
+- Isolated fixture verified stale-output removal, unrelated TOML preservation, and symlink relocation.
+
+### Reference
+- GitHub Issue #14
