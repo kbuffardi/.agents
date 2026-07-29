@@ -5,11 +5,22 @@ import json
 import shutil
 
 SRC = Path.home() / ".agents"
-OUT = SRC / "generated-codex"
+OUT = SRC
 CODEX_AGENTS = Path.home() / ".codex" / "agents"
 STATE_FILE = OUT / ".sync-state.json"
 
 GENERATOR_VERSION = "3"
+
+# These routing agents have an intentional Codex model override for compatibility
+# with Codex agent spawning. Other generated agents remain model-agnostic.
+CODEX_AGENT_METADATA = {
+    "AGENTS.md": {
+        "description": "This is the persistent agent routing guide for this repository. Use it to decide which root agent definition and which repository skill should shape a task before planning, editing, reviewing, or publishing changes.",
+        "model": "gpt-5.5",
+    },
+    "plan-agent.md": {"model": "gpt-5.5"},
+    "plan-reviewer.md": {"model": "gpt-5.5"},
+}
 
 
 def sha256(text):
@@ -65,12 +76,16 @@ def parse_agent(path):
 
 
 def render_toml(agent):
+    metadata = CODEX_AGENT_METADATA.get(agent["source"], {})
+    description = metadata.get("description", agent["description"])
+    model = metadata.get("model")
+    model_section = f"model = {toml_quote(model)}\n\n" if model else "\n"
+
     return f"""# Generated from {agent["source"]}. Do not edit directly.
 
 name = {toml_quote(agent["name"])}
-description = {toml_quote(agent["description"])}
-
-developer_instructions = {toml_quote(agent["developer_instructions"])}
+description = {toml_quote(description)}
+{model_section}developer_instructions = {toml_quote(agent["developer_instructions"])}
 """
 
 
@@ -146,9 +161,17 @@ def main():
     valid_outputs = {entry["output"] for entry in new_files.values()}
 
     removed = 0
-    for toml in OUT.glob("*.toml"):
-        if toml.name not in valid_outputs:
-            toml.unlink()
+    previous_outputs = {
+        entry.get("output")
+        for entry in old_files.values()
+        if isinstance(entry, dict) and entry.get("output")
+    }
+    for output_name in previous_outputs - valid_outputs:
+        if not isinstance(output_name, str) or Path(output_name).name != output_name:
+            continue
+        stale_output = OUT / output_name
+        if stale_output.is_file() and stale_output.suffix == ".toml":
+            stale_output.unlink()
             removed += 1
 
     save_state({
