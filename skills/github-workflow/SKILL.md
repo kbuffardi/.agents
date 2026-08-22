@@ -31,8 +31,19 @@ Keep branch names short, descriptive, and prefixed with the type of work being d
 feature/<short-description>   → feature/task-creation
 fix/<short-description>       → fix/duplicate-tasks
 chore/<short-description>     → chore/update-deps
-refactor/<short-description>  → refactor/auth-module
 ```
+
+#### Markdown formatting
+
+When writing Markdown for GitHub Issues, Pull Requests, or documentation, follow these guidelines:
+
+- Use headings (`#`, `##`, `###`, etc.) to structure content.
+- Use backticks (`` ` ``) for inline code and triple backticks (```` ``` ````) for code blocks.
+- Use lists (`-` or `*`) for enumerations or bullet points.
+- Use links (`[text](url)`) to reference other issues, pull requests, or external resources.
+- Use bold (`**text**`) and italics (`*text*`) to emphasize important information.
+- When writing an issue or pull request description using the GitHub CLI (`gh`), use the `--body-file` or `--body` option to provide the content from a Markdown file so that the rendered content has proper Markdown formatting with actual endlines rather than literal "\n" text.
+
 
 ### 1. Document plans in a GitHub Issue
 
