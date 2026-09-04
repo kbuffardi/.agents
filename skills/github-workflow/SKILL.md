@@ -34,6 +34,37 @@ chore/<short-description>     → chore/update-deps
 refactor/<short-description>  → refactor/auth-module
 ```
 
+#### GitHub CLI Markdown bodies
+
+For every multi-line GitHub Issue or Pull Request body written with `gh`, create a
+temporary Markdown file containing actual line breaks and pass it with
+`--body-file`. This applies to creating, editing, and commenting on Issues and
+Pull Requests.
+
+Never put escaped newlines such as `\n` in a `--body` argument, and do not use
+`--body` for multi-line Markdown. GitHub will render those characters literally
+instead of making a new line.
+
+Use this pattern, substituting the appropriate `gh issue` or `gh pr` command:
+
+```bash
+body_file="$(mktemp /tmp/github-body-XXXXXX.md)"
+cat > "$body_file" <<'EOF'
+## Summary
+
+- First item
+- Second item
+EOF
+
+gh issue create --title "Example title" --body-file "$body_file"
+rm -f "$body_file"
+```
+
+For example, use `gh issue comment <number> --body-file "$body_file"`,
+`gh issue edit <number> --body-file "$body_file"`, `gh pr create --body-file
+"$body_file"`, `gh pr comment <number> --body-file "$body_file"`, and `gh pr
+edit <number> --body-file "$body_file"` for the other body-writing operations.
+
 ### 1. Document plans in a GitHub Issue
 
 The beginning of every change should initiate as a GitHub Issue. The issue should contain a clear description of the problem, the proposed solution, and any relevant context or references. This ensures that all stakeholders are aware of the change and can provide input before any code is written. If a plan is instigated without an explicit GitHub Issue identified, the human should be asked whether there is an existing GitHub Issue or if the agent should create one. 
