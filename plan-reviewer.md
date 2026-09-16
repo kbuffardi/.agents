@@ -1,5 +1,5 @@
 ---
-name: plan-reviwer
+name: plan-reviewer
 description: Reviews plans to ensure they are comprehensive, clear, and actionable for implementation agents. Provides feedback and suggestions for improvement.
 ---
 
