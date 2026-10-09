@@ -15,14 +15,14 @@
     "plan-agent.md": {
       "generator_version": "3",
       "output": "plan-agent.toml",
-      "output_hash": "b0d46b516f93d5d161e22be8e8ad8f350db9316de88444ca38896ed044e7d050",
-      "source_hash": "0a1ce306ea77ca7c7ddf1b6fc944db13bbc9e385847bb9d7b8f5a03170d62a02"
+      "output_hash": "886299107a2a9d2b87f3d142c32b5b9638ad217957bd712909e973b900b604b2",
+      "source_hash": "070436eb216c64cbbd4656d1cfcd7231ea0956d926a3a9030bdd1867c65fb900"
     },
     "plan-reviewer.md": {
       "generator_version": "3",
       "output": "plan-reviewer.toml",
-      "output_hash": "0db660edd46bf08e1ef745792081978eaf3f7734bcf12557a0d26640e0f6184a",
-      "source_hash": "9c63714070b1123acc879ba76dc370b0f0e77adf9126b14f8eebd2abc7e1b058"
+      "output_hash": "8a7dea9acacf39e09a0cd57c458f1983baee9c2a272f32ba6f89926236b839b2",
+      "source_hash": "110cc0a18645e627ae3bf149f4c2fd6b1de7c1ee12caa5c92bebc7b3afcc19e0"
     },
     "refactor-agent.md": {
       "generator_version": "3",
