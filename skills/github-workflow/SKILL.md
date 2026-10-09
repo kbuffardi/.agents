@@ -65,6 +65,19 @@ For example, use `gh issue comment <number> --body-file "$body_file"`,
 "$body_file"`, `gh pr comment <number> --body-file "$body_file"`, and `gh pr
 edit <number> --body-file "$body_file"` for the other body-writing operations.
 
+#### Published text integrity
+
+Before publishing an Issue, PR, review, or comment, inspect the resolved text.
+All intended formatting must be represented by actual characters: a paragraph
+break is two newline characters, a tab is a tab character, and so on. Never
+publish serialized or double-escaped prose/Markdown such as `\\n`, `\\r`, or
+`\\t`; GitHub renders those as visible text instead of formatting.
+
+This applies even when the content was copied from tool output, JSON, an agent
+plan, or a commit-description draft. Literal escape notation is permitted only
+inside an intentional code or syntax example. When in doubt, write the exact
+final text to the body file and inspect that file before invoking `gh`.
+
 ### 1. Document plans in a GitHub Issue
 
 The beginning of every change should initiate as a GitHub Issue. The issue should contain a clear description of the problem, the proposed solution, and any relevant context or references. This ensures that all stakeholders are aware of the change and can provide input before any code is written. If a plan is instigated without an explicit GitHub Issue identified, the human should be asked whether there is an existing GitHub Issue or if the agent should create one. 

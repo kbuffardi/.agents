@@ -69,6 +69,19 @@ Follow the [Conventional Commits](https://www.conventionalcommits.org/) format:
 - Reference issue numbers if found in agent context (e.g., `Fixes #123`)
 - If multiple logical changes exist, suggest splitting into separate commits
 
+#### Text integrity
+
+Commit messages and Git notes are GitHub-visible metadata once pushed. Compose
+their final text with actual control characters, never serialized escape
+notation. For example, separate the subject and body with real newline
+characters; do not pass the visible characters `\\n\\n` as a substitute. The
+same rule applies to tabs, carriage returns, and other intended formatting.
+
+For a multi-line commit message or note, write the exact final content to a
+temporary text file and use `git commit -F <file>` or `git notes add -F <file>`.
+Inspect the file before writing the metadata. Literal escape notation is allowed
+only when the message intentionally presents code or escape syntax.
+
 ### 4. Attach AI Reasoning as Git Note (When Applicable)
 
 If any of the following are true, attach a git note after committing:

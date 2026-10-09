@@ -103,3 +103,13 @@ IMPORTANT create this spec file in the `specs/` directory with a descriptive nam
 ## Report
 - Summarize the work you've just done in a concise bullet point list.
 - Include the full path to the plan file you created (e.g., `specs/issue-456-adw-xyz789-sdlc_planner-add-auth-system.md`)
+
+## Published Text Integrity
+
+When writing a GitHub Issue, PR, comment, or any metadata that will be displayed
+on GitHub, write actual control characters into the final text. Do not serialize
+prose or Markdown formatting as literal escape notation such as `\\n`, `\\r`, or
+`\\t`; a literal `\\n` in a comment is a defect, not a line break. Build
+multi-line content in a Markdown file with real line breaks and use the
+publication mechanism that reads that file. Literal escape notation is allowed
+only when the artifact intentionally documents code or escape syntax.
