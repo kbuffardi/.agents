@@ -1,53 +1,53 @@
 {
   "files": {
     "AGENTS.md": {
-      "generator_version": "3",
+      "generator_version": "4",
       "output": "AGENTS.toml",
-      "output_hash": "1b3ad7d8dc837ea47d777ffcf25cac43ed6971942ef94e7463c41101f1e94e27",
+      "output_hash": "21a60b24f8afa5e13d4b39f216d977fdf2dc5ed10a6f48331505e4f44672d343",
       "source_hash": "4e6c7b7d76a655d653e5d69a7bd3185beea36ee4376bbf5c59c8ab2d8964923b"
     },
     "code-reviewer.md": {
-      "generator_version": "3",
+      "generator_version": "4",
       "output": "code-reviewer.toml",
       "output_hash": "fb92c104406d86541a04ceb0b23f4c3f9d1d940b829c58ddb34397db223e395f",
       "source_hash": "74667b052cb6a75079791cee8f6e465a248e28fd82178505aaaec8db95c40ccf"
     },
     "plan-agent.md": {
-      "generator_version": "3",
+      "generator_version": "4",
       "output": "plan-agent.toml",
-      "output_hash": "886299107a2a9d2b87f3d142c32b5b9638ad217957bd712909e973b900b604b2",
+      "output_hash": "255c308d3dbefd0a66cc3c469db489ebc2248c27d028b0a9c7335cd2bbd7e6a4",
       "source_hash": "070436eb216c64cbbd4656d1cfcd7231ea0956d926a3a9030bdd1867c65fb900"
     },
     "plan-reviewer.md": {
-      "generator_version": "3",
+      "generator_version": "4",
       "output": "plan-reviewer.toml",
-      "output_hash": "8a7dea9acacf39e09a0cd57c458f1983baee9c2a272f32ba6f89926236b839b2",
+      "output_hash": "0703fe18cf8c1476a53de45b65a364098183a1cc2547e513b8f18dd7efb66b97",
       "source_hash": "110cc0a18645e627ae3bf149f4c2fd6b1de7c1ee12caa5c92bebc7b3afcc19e0"
     },
     "refactor-agent.md": {
-      "generator_version": "3",
+      "generator_version": "4",
       "output": "refactor-agent.toml",
       "output_hash": "8e305333c5b257a8cbedd746de79754a20317be61557a26b936a7306d5932801",
       "source_hash": "b609d3c9802f67f0f1390cd3f96597e606227f75ca0445f9f24780e9cb57693a"
     },
     "security-auditor.md": {
-      "generator_version": "3",
+      "generator_version": "4",
       "output": "security-auditor.toml",
       "output_hash": "ba5ac667ed7b2419dbcd34983528c6880cc1e2899d15b7761788cb8f30e39e19",
       "source_hash": "66a3f68f1c691b600ddb44e88afb138e239d0572df37be84e1f9a427c887dd0a"
     },
     "test-engineer.md": {
-      "generator_version": "3",
+      "generator_version": "4",
       "output": "test-engineer.toml",
       "output_hash": "7b4d7d946da18fc908a0f78e0724679f62b6ddbedb8ca9f1a10fcaf847f2600e",
       "source_hash": "c4acde91d6307d88515387344a129a2d0679134e587596c3517d73faffcd5aa6"
     },
     "web-performance-auditor.md": {
-      "generator_version": "3",
+      "generator_version": "4",
       "output": "web-performance-auditor.toml",
       "output_hash": "a0866d4dd59d3d8f84d940d4a4148396afa8082a49c38e6b23f9d114ea30692c",
       "source_hash": "0928b1cf8103262a364bce0c1fc689a918852e2275441f1b2e687adfa1e607e9"
     }
   },
-  "generator_version": "3"
+  "generator_version": "4"
 }

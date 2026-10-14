@@ -9,17 +9,12 @@ OUT = SRC
 CODEX_AGENTS = Path.home() / ".codex" / "agents"
 STATE_FILE = OUT / ".sync-state.json"
 
-GENERATOR_VERSION = "3"
+GENERATOR_VERSION = "4"
 
-# These routing agents have an intentional Codex model override for compatibility
-# with Codex agent spawning. Other generated agents remain model-agnostic.
 CODEX_AGENT_METADATA = {
     "AGENTS.md": {
         "description": "This is the persistent agent routing guide for this repository. Use it to decide which root agent definition and which repository skill should shape a task before planning, editing, reviewing, or publishing changes.",
-        "model": "gpt-5.5",
     },
-    "plan-agent.md": {"model": "gpt-5.5"},
-    "plan-reviewer.md": {"model": "gpt-5.5"},
 }
 
 
@@ -78,14 +73,13 @@ def parse_agent(path):
 def render_toml(agent):
     metadata = CODEX_AGENT_METADATA.get(agent["source"], {})
     description = metadata.get("description", agent["description"])
-    model = metadata.get("model")
-    model_section = f"model = {toml_quote(model)}\n\n" if model else "\n"
 
     return f"""# Generated from {agent["source"]}. Do not edit directly.
 
 name = {toml_quote(agent["name"])}
 description = {toml_quote(description)}
-{model_section}developer_instructions = {toml_quote(agent["developer_instructions"])}
+
+developer_instructions = {toml_quote(agent["developer_instructions"])}
 """
 
 
